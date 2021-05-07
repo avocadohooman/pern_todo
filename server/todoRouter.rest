@@ -1,0 +1,10 @@
+###
+POST http://localhost:3000/todo/
+Content-Type: application/json
+
+{
+    "description": "Peter Two"
+}
+
+###
+GET http://localhost:3000/todo/
