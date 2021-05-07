@@ -21,7 +21,7 @@
     "tsc": "tsc",
     "dev": "ts-node-dev server/index.ts",
     "start-prod": "node build server/index.ts",
-    "lint": "eslint --ext .ts ."
+    "elint": "eslint --ext .ts ."
   },
   "repository": {
     "type": "git",
