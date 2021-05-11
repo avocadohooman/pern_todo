@@ -1,2 +1,8 @@
-# pern_todo
-A simple to do app using PERN stack
+# Simple ToDo App with PERN
+The PERN stack consists of PostgreSQL, Express, React, and Node.js.
+
+# Usage
+
+# Learnings
+
+# Improvements
