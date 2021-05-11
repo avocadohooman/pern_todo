@@ -3,6 +3,7 @@ import './App.css';
 
 //components 
 import InputTodo from './components/inputTodo';
+import ListTodos from './components/listTodos';
 
 const App = () => {
 
@@ -10,6 +11,7 @@ const App = () => {
   return (
     <div className="container">
       <InputTodo/>
+      <ListTodos/>
     </div>
   )
 }
