@@ -22,8 +22,8 @@
     "tsc": "tsc",
     "build-client": "rm -rf build && cd client && npm run build --prod && cp -r build ../",
     "dev": "ts-node-dev server/index.ts",
-    "start": "node server/index.ts",
-    "start-prod": "node server/index.ts",
+    "start": "ts-node server/index.ts",
+    "start-prod": "ts-node server/index.ts",
     "elint": "eslint --ext .ts .",
     "deploy": "git push heroku main",
     "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && npm run deploy"
