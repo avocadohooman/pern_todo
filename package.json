@@ -12,8 +12,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "pg": "^8.6.0",
-    "ts-node": "^9.0.0",
-    "typescript": "^4.2.4"
+    "ts-node": "^9.0.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.10",
@@ -38,7 +37,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://git.heroku.com/agile-stream-63806.git'"
+    "url": "git+https://git.heroku.com/frozen-tundra-02889.git'"
   },
   "author": "",
   "license": "ISC",
