@@ -12,7 +12,8 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "pg": "^8.6.0",
-    "ts-node": "^9.0.0"
+    "ts-node": "^9.0.0",
+    "typescript": "^4.2.4"
   },
   "devDependencies": {
     "@types/cors": "^2.8.10",
@@ -27,6 +28,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "tsc",
+    "postinstall":"tsc",
     "build-client": "rm -rf build && cd client && npm run build --prod && cp -r build ../",
     "dev": "ts-node-dev server/index.ts",
     "start": "ts-node server/index.ts",
