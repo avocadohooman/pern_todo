@@ -11,12 +11,6 @@ app.use(express.json());
 app.use(express.static('build'));
 app.use('/todo', todoRouter);
 
-//healthcheck
-
-app.get('/health', async (req, res) => {
-    res.send('ok');
-})
-
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
