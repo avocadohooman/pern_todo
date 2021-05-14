@@ -30,3 +30,4 @@ jobs:
           heroku_email: "gerhard@minimumbadass.com"
           healthcheck: "https://frozen-tundra-02889.herokuapp.com/health"
           checkstring: "ok"
+          delay: 10
