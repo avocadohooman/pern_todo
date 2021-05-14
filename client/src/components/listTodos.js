@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import EditTodo from './editTodo';
+const baseUrl = '/todo';
 
 const ListTodos = () => {
     
@@ -7,7 +8,7 @@ const ListTodos = () => {
     
     const getTodos = async () => {
         try {
-            const response = await fetch("http://localhost:3000/todo");
+            const response = await fetch(`${baseUrl}`);
             const jsonData = await response.json();
             setToDos(jsonData);
         } catch (error) {
@@ -17,7 +18,7 @@ const ListTodos = () => {
 
     const deleteTodo = async (id) => {
         try {
-            const response = await fetch(`http://localhost:3000/todo/${id}`, {
+            const response = await fetch(`${baseUrl}/${id}`, {
                 method: "DELETE"
             });
             console.log("Deleted", response);

@@ -33,7 +33,7 @@
     "start": "ts-node server/index.ts",
     "start-prod": "ts-node server/index.ts",
     "elint": "eslint --ext .ts .",
-    "deploy": "git push heroku HEAD:masterls",
+    "deploy": "git push heroku HEAD:master",
     "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && npm run deploy"
   },
   "repository": {
