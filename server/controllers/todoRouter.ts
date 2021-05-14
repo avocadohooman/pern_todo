@@ -69,12 +69,4 @@ todoRouter.delete('/:id', async (req, res) => {
     }
 })
 
-
-
-//healthcheck
-
-todoRouter.get('/health', async (req, res) => {
-    res.send('ok');
-})
-
 export default todoRouter;
