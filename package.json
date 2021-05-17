@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "@types/cors": "^2.8.10",
+    "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.11",
     "@types/pg": "^7.14.11",
     "@typescript-eslint/eslint-plugin": "^4.23.0",
@@ -28,11 +29,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "tsc",
-    "postinstall":"tsc",
+    "postinstall": "tsc",
     "build-client": "rm -rf build && cd client && npm run build --prod && cp -r build ../",
-    "dev": "ts-node-dev server/index.ts",
+    "dev": "NODE_ENV=development ts-node-dev  server/index.ts",
     "start": "ts-node server/index.ts",
-    "start-prod": "ts-node server/index.ts",
+    "start-prod": "NODE_ENV=production ts-node  server/index.ts",
     "elint": "eslint --ext .ts .",
     "deploy": "git push heroku HEAD:master",
     "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && npm run deploy"
