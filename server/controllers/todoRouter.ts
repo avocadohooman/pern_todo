@@ -1,4 +1,4 @@
-import express, { response } from 'express';
+import express from 'express';
 import pool from '../db';
 import { ToDo } from '../models/todo';
 
@@ -12,6 +12,7 @@ if (process.env.NODE_ENV === 'development') {
     table = 'todo_test'
 }
 
+console.log(`Using table: ${table} in environment: ${process.env.NODE_ENV}`)
 //create a todo
 
 todoRouter.post('/', async (req, res) => {
