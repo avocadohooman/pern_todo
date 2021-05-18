@@ -20,11 +20,12 @@ jobs:
           node-version: '12.x'
       - name: npm install
         run: npm install -g typescript 
-        run: npm run test
+      - name: Run Jest
+        uses: stefanoeb/jest-action@1.0.3
       # - name: lint
       #   run: npm run elint
-      # - name: npm run test
-      #   run: npm run test
+      - name: npm run test
+        run: npm run test
       - name: Heroku deployment
         uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
