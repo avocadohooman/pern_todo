@@ -34,7 +34,7 @@ describe("GET /", () => {
 	})
 })
 
-afterAll(async () => {
-	await pool.end();
-	console.log('pool has drained');
-})
+// afterAll(async () => {
+// 	await pool.end();
+// 	console.log('pool has drained');
+// })
