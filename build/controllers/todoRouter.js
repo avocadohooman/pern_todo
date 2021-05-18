@@ -23,6 +23,7 @@ if (process.env.NODE_ENV === 'development') {
 else if (process.env.NODE_ENV === 'test') {
     table = 'todo_test';
 }
+console.log(`Using table: ${table} in environment: ${process.env.NODE_ENV}`);
 //create a todo
 todoRouter.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const body = req.body;

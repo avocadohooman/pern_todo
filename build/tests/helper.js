@@ -2,13 +2,13 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 let iniatialToDos = [
     {
-        description: 'Todo One',
+        description: 'This is a todo list',
     },
     {
-        description: 'Todo Two',
+        description: 'A second todo list',
     },
     {
-        description: 'Todo Three',
+        description: 'A third todo list',
     }
 ];
 exports.default = {
