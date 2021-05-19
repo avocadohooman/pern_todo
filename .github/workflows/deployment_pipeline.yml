@@ -20,19 +20,19 @@ jobs:
           node-version: '12.x'
       - name: npm install
         run: npm install -g typescript 
-  # integration_test:
-  #   needs: [modules]
-  #   name: Backend Integration Testing
-  #   runs-on: ubuntu-18.04
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: actions/setup-node@v1
-  #       with:
-  #         node-version: '12.x'
-  #     - name: Run Jest
-  #       uses: stefanoeb/jest-action@1.0.3
-  #       env:
-  #         DATABASE_URL: ${{secrets.DATABASE_URL}}
+  integration_test:
+    needs: [modules]
+    name: Backend Integration Testing
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Run Jest
+        uses: stefanoeb/jest-action@1.0.3
+        env:
+          DATABASE_URL: ${{secrets.DATABASE_URL}}
   e2e_testing:
     needs: [modules]
     name: End-to-End Testing
