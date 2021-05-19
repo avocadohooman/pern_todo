@@ -47,7 +47,7 @@ jobs:
     name: Heroku Deployment
     runs-on: ubuntu-18.04
     steps:
-        uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "frozen-tundra-02889" #Must be unique in Heroku
