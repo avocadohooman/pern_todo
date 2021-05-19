@@ -29,8 +29,10 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '12.x'
+      - name: Install Modules
+        run: npm install
       - name: Run Jest
-        uses: stefanoeb/jest-action@1.0.3
+        run: npm run test
         env:
           DATABASE_URL: ${{secrets.DATABASE_URL}}
   e2e_testing:
