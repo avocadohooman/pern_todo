@@ -20,9 +20,9 @@ jobs:
           node-version: '12.x'
       - name: npm install
         run: npm install -g typescript 
-  tests:
+  integration_test:
     needs: [modules]
-    name: Testing backend
+    name: Backend Integration Testing
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
@@ -33,8 +33,25 @@ jobs:
         uses: stefanoeb/jest-action@1.0.3
         env:
           DATABASE_URL: ${{secrets.DATABASE_URL}}
+  e2e_testing:
+    needs: [integration_test]
+    name: End-to-End Testing
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Cypress e2e tests
+        uses: cypress-io/github-action@v2
+        with:
+          command: npm run test:e2e
+          start: npm run start-prod
+          wait-on: http://localhost:3000
+        env:
+          DATABASE_URL: ${{secrets.DATABASE_URL}}
   deployment:
-    needs: [tests]
+    needs: [e2e_testing]
     name: Heroku Deployment
     runs-on: ubuntu-18.04
     steps:
