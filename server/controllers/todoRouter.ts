@@ -22,7 +22,7 @@ todoRouter.post('/', async (req, res) => {
         console.log(req.body);
         const newTodo = await pool.query(`INSERT INTO ${table} (description) VALUES($1) RETURNING *`, 
         [body.description]);
-        res.status(200).json(newTodo.rows);
+        res.status(200).json(newTodo.rows[0]);
     } catch (error) {
         console.log(error.message);
     }
@@ -45,7 +45,7 @@ todoRouter.get('/:id', async (req, res) => {
     try {
         const {id} = req.params;
         const todo = await pool.query(`SELECT * FROM ${table} WHERE todo_id = ($1)`, [id]);
-        res.status(200).json(todo.rows);
+        res.status(200).json(todo.rows[0]);
     } catch (error) {
         console.log(error.message);
     }
@@ -57,9 +57,9 @@ todoRouter.put('/:id', async (req, res) => {
     try {
         const todoUpdate = req.body;
         const {id} = req.params;
-
         const updateTodo = await pool.query(`UPDATE ${table}  SET description = ($1) WHERE todo_id = ($2)`, [todoUpdate.description, id]);
-        res.status(200).json("ToDo was updated");
+        console.log("UPDATED TODO", updateTodo.rows);
+        res.status(200).json(updateTodo.rows);
     } catch (error) {
         console.log(error.message);
     }
@@ -72,7 +72,7 @@ todoRouter.delete('/:id', async (req, res) => {
         const { id } = req.params;
         await pool.query(`DELETE FROM ${table} WHERE todo_id = ($1)`, [id]);
         console.log("todo deleted");
-        res.status(200).json("Todo deleted");
+        res.status(200).json({message: "Todo deleted"});
     } catch (error) {
         console.log(error.message);
     }
