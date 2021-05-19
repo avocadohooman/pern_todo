@@ -15,7 +15,7 @@ npm install
 
 Run `npm run dev` for a dev server. Navigate to `http://localhost:3000/`. The app will automatically reload if you change any of the source files.
 
-Note: You won't be able to see andy ToDo entries, or add any as the server requires the process.env.DATABASE_URL.
+Note: You won't be able to see any ToDo entries, or add any new ToDo as the server requires the process.env.DATABASE_URL.
 
 ## Build & Production mode
 
@@ -23,7 +23,7 @@ Run `npm run build-client` to build the client. The build artifacts will be stor
 
 Run `npm run start-prod` for a production server. Navigate to `http://localhost:3000/`. 
 
-Note: You won't be able to see andy ToDo entries, or add any as the server requires the process.env.DATABASE_URL.
+Note: You won't be able to see any ToDo entries, or add any new ToDo as the server requires the process.env.DATABASE_URL.
 
 ## Running integration test
 Run `npm run test` to execute the integration tests via [Jest](https://github.com/facebook/jest).
