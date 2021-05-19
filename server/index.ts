@@ -1,26 +1,12 @@
-import express from 'express';
-import Pool from './db';
-import todoRouter from './controllers/todoRouter';
-import cors from 'cors';
+import http from 'http';
+import app from './app';
 
-const app = express();
-const pool = Pool;
 
-app.use(cors());
-app.use(express.json());
-app.use(express.static('build'));
-app.use('/todo', todoRouter);
+const server = http.createServer(app);
 const PORT = process.env.PORT || 3000;
 
-//healthcheck
-
-app.get('/health', async (req, res) => {
-    res.send('ok');
+server.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 })
-
-
-app.listen(PORT, () => {
-    console.log(`Listening on ${PORT}`);
-});
 
 export default app;

@@ -1,5 +1,5 @@
 import pool from '../db';
-import app from '../index';
+import app from '../app';
 import request from 'supertest';
 import helper from './helper';
 
@@ -34,7 +34,7 @@ describe("GET /", () => {
 	})
 })
 
-// afterAll(async () => {
-// 	await pool.end();
-// 	console.log('pool has drained');
-// })
+afterAll(async () => {
+	await pool.end();
+	console.log('pool has drained');
+})
