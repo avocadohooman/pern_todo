@@ -20,10 +20,6 @@ jobs:
           node-version: '12.x'
       - name: npm install
         run: npm install -g typescript 
-      # - name: Run Jest
-      #   uses: stefanoeb/jest-action@1.0.3
-      #   env:
-      #     DATABASE_URL: ${{secrets.DATABASE_URL}}
       # - name: Heroku deployment
       #   uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
       #   with:
@@ -42,10 +38,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-      - name: npm install
-        run: npm install -g typescript 
-      - name: npm run test
-        run: npm run test
+      - name: Run Jest
+        uses: stefanoeb/jest-action@1.0.3
         env:
-          DATABASE_URL: ${{secrets.DATABASE_URL}}
-    
+          DATABASE_URL: ${{secrets.DATABASE_URL}}    
