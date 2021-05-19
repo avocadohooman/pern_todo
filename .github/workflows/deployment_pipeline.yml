@@ -46,6 +46,7 @@ jobs:
     needs: [tests]
     name: Heroku Deployment
     runs-on: ubuntu-18.04
+    steps:
       - name: Heroku deployment
         uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
