@@ -47,7 +47,6 @@ jobs:
     name: Heroku Deployment
     runs-on: ubuntu-18.04
     steps:
-      - name: Heroku deployment
         uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
