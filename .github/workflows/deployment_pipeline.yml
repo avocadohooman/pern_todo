@@ -20,15 +20,15 @@ jobs:
           node-version: '12.x'
       - name: npm install
         run: npm install -g typescript 
-      # - name: Heroku deployment
-      #   uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
-      #   with:
-      #     heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-      #     heroku_app_name: "frozen-tundra-02889" #Must be unique in Heroku
-      #     heroku_email: "gerhard@minimumbadass.com"
-      #     healthcheck: "https://frozen-tundra-02889.herokuapp.com/health"
-      #     checkstring: "ok"
-      #     delay: 10
+      - name: Heroku deployment
+        uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "frozen-tundra-02889" #Must be unique in Heroku
+          heroku_email: "gerhard@minimumbadass.com"
+          healthcheck: "https://frozen-tundra-02889.herokuapp.com/health"
+          checkstring: "ok"
+          delay: 10
   tests:
     needs: [modules]
     name: Testing backend
@@ -41,4 +41,17 @@ jobs:
       - name: Run Jest
         uses: stefanoeb/jest-action@1.0.3
         env:
-          DATABASE_URL: ${{secrets.DATABASE_URL}}    
+          DATABASE_URL: ${{secrets.DATABASE_URL}}
+  deployment:
+    needs: [tests]
+    name: Heroku Deployment
+    runs-on: ubuntu-18.04
+      - name: Heroku deployment
+        uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "frozen-tundra-02889" #Must be unique in Heroku
+          heroku_email: "gerhard@minimumbadass.com"
+          healthcheck: "https://frozen-tundra-02889.herokuapp.com/health"
+          checkstring: "ok"
+          delay: 10
