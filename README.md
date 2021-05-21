@@ -44,5 +44,5 @@ It was the first time I worked with PostgresSQL and I really enjoyed it. A few m
 
 # Improvements
 
-More robust backend APIs, better test suits.
+More robust backend APIs, better test suits. Also, adding protection for bots adding thousands of todos and exploding the database.
 
