@@ -14,7 +14,8 @@ const limit = rateLimit({
     windowMs: 60 * 60 * 1000, // 1 Hour
     message: 'Too many requests' // message to send
 });
-app.use('/todo', todoRouter, limit);
+app.use('/todo', limit);
+app.use('/todo', todoRouter);
 
 app.get('/health', async (req, res) => {
     res.send('ok');
