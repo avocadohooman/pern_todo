@@ -1,6 +1,7 @@
 import express from 'express';
 import pool from '../db';
 import { ToDo } from '../models/todo';
+import rateLimit from 'express-rate-limit';
 
 const todoRouter = express.Router();
 
@@ -13,9 +14,16 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 console.log(`Using table: ${table} in environment: ${process.env.NODE_ENV}`)
+
+//setting limit for post requests
+const postApiLimiter = rateLimit({
+    max: 10,// max requests
+    windowMs: 60 * 60 * 1000, // 1 Hour
+    message: 'Too many accounts created from this IP, please try again after an hour' // message to send
+});
 //create a todo
 
-todoRouter.post('/', async (req, res) => {
+todoRouter.post('/', postApiLimiter, async (req, res) => {
     const body: ToDo = req.body;
 
     try {
@@ -27,10 +35,15 @@ todoRouter.post('/', async (req, res) => {
         console.log(error.message);
     }
 })
-
+//set GET limiter
+const apiLimiter = rateLimit({
+    windowMs: 30 * 60 * 1000, // 30 minutes
+    max: 100
+  });
+  
 //get all todos
 
-todoRouter.get('/', async (req, res) => {
+todoRouter.get('/', apiLimiter, async (req, res) => {
     try {
         const allTodos = await pool.query(`SELECT * FROM ${table} `)
         res.status(200).json(allTodos.rows);
