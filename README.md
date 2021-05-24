@@ -35,7 +35,7 @@ Then run `npm run test:e2e` to execute the end-to-end tests via [Cypress](https:
 
 # Learnings
 
-This project served to implement my newly acquired knowledge on full-stack development, with the main focus on backend developemnt and CI/CD integration.
+This project served to implement my newly acquired knowledge on full-stack development, with the main focus on backend development and CI/CD integration.
 The biggest pain points were configuring the CI/CD pipeline and getting the backend to work properly with Typescript sometimes.
 
 The backend and the tests are nothing fancy, but were only implemented for the purpose of creating a solid CI/CD deployment pipeline.
@@ -44,5 +44,5 @@ It was the first time I worked with PostgresSQL and I really enjoyed it. A few m
 
 # Improvements
 
-More robust backend APIs, better test suits.
+More robust backend APIs, better test suits. Also, adding protection for bots adding thousands of todos and exploding the database.
 
