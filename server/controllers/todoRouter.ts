@@ -21,6 +21,7 @@ const postApiLimiter = rateLimit({
     windowMs: 60 * 60 * 1000, // 1 Hour
     message: 'Too many accounts created from this IP, please try again after an hour' // message to send
 });
+
 //create a todo
 
 todoRouter.post('/', postApiLimiter, async (req, res) => {
@@ -35,6 +36,7 @@ todoRouter.post('/', postApiLimiter, async (req, res) => {
         console.log(error.message);
     }
 })
+
 //set GET limiter
 const apiLimiter = rateLimit({
     windowMs: 30 * 60 * 1000, // 30 minutes
